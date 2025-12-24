@@ -40,7 +40,7 @@ env:
   INPUT_USERNAME: ninesun0318
   INPUT_PASSWORD: ${{ secrets.CI_DOCKERHUB_PASSWORD }}
   INPUT_NAMESPACE: ninesun0318
-  INPUT_REPOSITORY: gpustack
+  INPUT_REPOSITORY: ninesun0318/gpustack
 
 jobs:
   pack:
