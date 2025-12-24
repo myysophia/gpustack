@@ -37,9 +37,9 @@ on:
 
 env:
   INPUT_PYTHON_VERSION: 3.11
-  INPUT_USERNAME: gpustack
+  INPUT_USERNAME: ninesun0318
   INPUT_PASSWORD: ${{ secrets.CI_DOCKERHUB_PASSWORD }}
-  INPUT_NAMESPACE: gpustack
+  INPUT_NAMESPACE: ninesun0318
   INPUT_REPOSITORY: gpustack
 
 jobs:
@@ -93,7 +93,7 @@ jobs:
         id: metadata
         uses: docker/metadata-action@v5
         with:
-          images: "${{ env.INPUT_NAMESPACE }}/${{ env.INPUT_REPOSITORY }}"
+          images: "${{ env.INPUT_REPOSITORY }}"
           tags: |
             type=ref,event=branch
             type=ref,event=pr
@@ -182,7 +182,7 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           file: ${{ github.workspace }}/pack/Dockerfile
           context: ${{ github.workspace }}
-          platforms: "linux/amd64,linux/arm64"
+          platforms: "linux/amd64"
           build-args: |
             PYTHON_VERSION=${{ env.INPUT_PYTHON_VERSION }}
             GPUSTACK_RUNTIME_DOCKER_MIRRORED_NAME_FILTER_LABELS=${{ env.INPUT_DOCKER_MIRRORED_NAME_FILTER_LABELS }}
